@@ -1,0 +1,44 @@
+name: TAC-Exclusive
+version: '${project.version}'
+main: com.trxsh.anticheat.Core
+api-version: 1.18
+author: trxsh
+depend: [ProtocolLib]
+description: Silent, effective anticheat exclusive to the DR SMP!
+commands:
+  heuristics:
+    description: Changes TAC Heuristics Mode.
+    usage: /<command>
+  offencelist:
+    description: List Of Offenders.
+    usage: /<command>
+  banslist:
+    description: List Of Player Bans.
+    usage: /<command>
+  alerting:
+    description: Turns Alerting On And Off.
+    usage: /<command>
+  logkicks:
+    description: Turns Logging On And Off.
+    usage: /<command>
+  kicklog:
+    description: Shows Kick Log.
+    usage: /<command>
+  clearlog:
+    description: Clears Kick Log.
+    usage: /<command>
+  givebypass:
+    description: Gives Bypass.
+    usage: /<command>
+  revokebypass:
+    description: Revokes Bypass.
+    usage: /<command>
+  bypasslist:
+    description: Shows Bypass List.
+    usage: /<command>
+  saveConfig:
+    description: Saves Config.
+    usage: /<command>
+  createfakenpc:
+    description: Create An NPC.
+    usage: /<command>
