@@ -1,12 +1,11 @@
 package com.trxsh.anticheat.Checks;
 
-import com.trxsh.anticheat.Combat.KillAura;
+import com.trxsh.anticheat.Combat.KillAuraA;
+import com.trxsh.anticheat.Combat.KillAuraB;
 import com.trxsh.anticheat.Combat.Reach;
 import com.trxsh.anticheat.Core;
 import com.trxsh.anticheat.Movement.*;
 import com.trxsh.anticheat.Packets.BadPacketsA;
-import com.trxsh.anticheat.Packets.BadPacketsB;
-import com.trxsh.anticheat.utils.AIUtil;
 import com.trxsh.anticheat.utils.FakePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,13 +23,16 @@ public class PacketCheckManager implements Listener {
 
     public PacketCheckManager() {
         //addCheck(new Timer());
-        //addCheck(new FlightA());
-        addCheck(new FlightB());
+        addCheck(new FlightA());
+        //addCheck(new FlightB());
         addCheck(new PacketSpeedA());
+        addCheck(new SpeedA());
         //addCheck(new Scaffold());
         addCheck(new BadPacketsA());
         //addCheck(new BadPacketsB());
-        addCombatCheck(new KillAura());
+        addCombatCheck(new KillAuraA());
+        addCombatCheck(new KillAuraB());
+        //addCombatCheck(new Criticals());
         addCombatCheck(new Reach());
     }
 
@@ -40,20 +42,14 @@ public class PacketCheckManager implements Listener {
             for(PacketCheck check : MoveChecks) {
                 CheckResult result = check.runPacketCheck(Core.getUser(event.getPlayer()), event);
                 if(result.failed()) {
-                    Core.getUser(event.getPlayer()).addVerbose();
-
-                    if(Core.getUser(event.getPlayer()).getVerbose() > 4) {
-                        if(!Core.getUser(event.getPlayer()).isBeingWatched) {
-                            FakePlayer.spawnFakePlayer(event.getPlayer(), Core.RandomLocation(event.getPlayer()));
-                            Core.getUser(event.getPlayer()).isBeingWatched = true;
-                            Core.getUser(event.getPlayer()).resetWatched();
-                        }
+                    if(!Core.getUser(event.getPlayer()).isBeingWatched) {
+                        FakePlayer.spawnFakePlayer(event.getPlayer(), Core.RandomLocation(event.getPlayer()));
+                        Core.getUser(event.getPlayer()).isBeingWatched = true;
+                        Core.getUser(event.getPlayer()).resetWatched();
                     }
 
-                    if(Core.getUser(event.getPlayer()).getVerbose() > 8) {
-                        event.getPlayer().teleport(event.getFrom());
-                        Core.log(Core.getUser(event.getPlayer()), result);
-                    }
+                    event.getPlayer().teleport(event.getFrom());
+                    Core.log(Core.getUser(event.getPlayer()), result);
                 }
             }
         }
@@ -67,19 +63,14 @@ public class PacketCheckManager implements Listener {
                 for(PacketCombatCheck check : CombatChecks) {
                     CheckResult result = check.runPacketCombatCheck(Core.getUser(player), event);
                     if(result.failed()) {
-                        Core.getUser(player).addVerbose();
 
-                        if(Core.getUser(player).getVerbose() > 5) {
-                            if(!Core.getUser(player).isBeingWatched) {
-                                FakePlayer.spawnFakePlayer(player, Core.RandomLocation(player));
-                                Core.getUser(player).isBeingWatched = true;
-                                Core.getUser(player).resetWatched();
-                            }
+                        if(!Core.getUser(player).isBeingWatched) {
+                            FakePlayer.spawnFakePlayer(player, Core.RandomLocation(player));
+                            Core.getUser(player).isBeingWatched = true;
+                            Core.getUser(player).resetWatched();
                         }
 
-                        if(Core.getUser(player).getVerbose() > 10) {
-                            Core.log(Core.getUser(player), result);
-                        }
+                        Core.log(Core.getUser(player), result);
                     }
                 }
             }

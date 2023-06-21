@@ -46,7 +46,7 @@ public class Core extends JavaPlugin {
         pm.registerEvents(new CheckManager(), this);
         pm.registerEvents(new CombatListener(), this);
         pm.registerEvents(new InvMoveListener(), this);
-        pm.registerEvents(new BlockBreakListener(), this);
+        pm.registerEvents(new BlockBreakPlaceListener(), this);
         pm.registerEvents(new PacketCheckManager(), this);
         pm.registerEvents(new PlayerMovementListener(), this);
         pm.registerEvents(new ElytraToggleEvent(), this);
@@ -76,29 +76,23 @@ public class Core extends JavaPlugin {
 
         if (DISABLED_CHECKS.contains(result.getType()))
             throw new IllegalStateException("Error! Tried to log a disabled check!");
-        String message = Prefix.getPrefix() + ChatColor.AQUA + u.getPlayer().getName() + ChatColor.GRAY + " " + Prefix.RandomAlert() + " " + ChatColor.RED + result.getType().getName() + ", (x" + u.CaughtTimes + ") " + result.getMessage() + ", VL = " + u.vl;
+        String message = Prefix.getPrefix() + ChatColor.AQUA + u.getPlayer().getName() + ChatColor.GRAY + " " + "failed" + " " + ChatColor.RED + result.getType().getName() + ", (x" + u.CaughtTimes + ") " + result.getMessage();
 
         Bukkit.getLogger().info(message);
         for(Player p : Bukkit.getOnlinePlayers()) {
             if(Alert) {
-                if(p.isOp()) {
-                    p.sendMessage(message);
-                }
+                p.sendMessage(message);
             }
         }
 
         u.CaughtTimes++;
-        String helpMessage = ChatColor.AQUA + "\n" + "false kick? please join discord for support: https://discord.gg/nmPZJQtVE4 ";
+        String helpMessage = ChatColor.AQUA + "\n" + "false kick? please join discord for support: https://discord.gg/TdccMCBauw ";
         if(u.CaughtTimes > CaughtTimeLimit) {
             Date date = new Date();
 
             KickCode kickcode = new KickCode(new Random(), u.getPlayer());
             String kickMessage = Prefix.getPrefix().replace(":", "") + ChatColor.RED + "\n" + "Kicked For Suspicious Client Behaviour." + "\n" + "KickCode: " + kickcode.generateKickCode() + helpMessage;
             String logMessage = ChatColor.AQUA + u.getPlayer().getName() + ChatColor.GRAY + " was kicked for " + result.getType().getName() + "." + " date: " + date + ". Kick Code: " +  kickcode.getKickCode();
-
-//			for(Bot b : BOTLIST) {
-//				b.remove();
-//			}
 
             if(Logger) {
                 if(!KICK_LOG.contains(logMessage)) {

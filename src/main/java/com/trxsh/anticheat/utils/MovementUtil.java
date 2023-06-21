@@ -40,6 +40,11 @@ public class MovementUtil {
                 || isMaterialGlideable(loc.clone().add(PLAYER_WIDTH/2, 0, -PLAYER_WIDTH/2).getBlock().getType())
                 || isMaterialGlideable(loc.clone().add(-PLAYER_WIDTH/2, 0, 0).getBlock().getType())
                 || isMaterialGlideable(loc.clone().add(-PLAYER_WIDTH/2, 0, -PLAYER_WIDTH/2).getBlock().getType())
+                || isMaterialGlideable(loc.clone().add(PLAYER_WIDTH/2, -1, 0).getBlock().getType())
+                || isMaterialGlideable(loc.clone().add(PLAYER_WIDTH/2, -1, PLAYER_WIDTH/2).getBlock().getType())
+                || isMaterialGlideable(loc.clone().add(PLAYER_WIDTH/2, -1, -PLAYER_WIDTH/2).getBlock().getType())
+                || isMaterialGlideable(loc.clone().add(-PLAYER_WIDTH/2, -1, 0).getBlock().getType())
+                || isMaterialGlideable(loc.clone().add(-PLAYER_WIDTH/2, -1, -PLAYER_WIDTH/2).getBlock().getType())
                 || isMaterialGlideable(loc.clone().add(0, 0, -PLAYER_WIDTH/2).getBlock().getType())
                 || isMaterialGlideable(loc.clone().add(0, 0, PLAYER_WIDTH/2).getBlock().getType())
                 || isOnGround(loc.clone().add(0, 0, 0));
@@ -69,6 +74,7 @@ public class MovementUtil {
             case WEEPING_VINES:
             case WEEPING_VINES_PLANT:
             case CAVE_VINES_PLANT:
+            case COBWEB:
                 return true;
             default:
                 return false;

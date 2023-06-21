@@ -1,6 +1,5 @@
 package com.trxsh.anticheat.Listeners;
 
-import com.trxsh.anticheat.Combat.KillAura;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +10,6 @@ import com.trxsh.anticheat.Core;
 import com.trxsh.anticheat.Checks.CheckResult;
 import com.trxsh.anticheat.Checks.CheckType;
 import com.trxsh.anticheat.Combat.MultiAura;
-import com.trxsh.anticheat.Combat.Reach;
 import com.trxsh.anticheat.Combat.WallHit;
 import com.trxsh.anticheat.utils.User;
 

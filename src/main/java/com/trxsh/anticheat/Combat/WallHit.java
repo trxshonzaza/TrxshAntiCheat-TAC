@@ -20,7 +20,7 @@ public class WallHit {
         Player p = user.getPlayer();
 
         if (x == 0 || z == 0) {
-            System.out.println("Warning! WallHit Positions are same"); // optional
+            //System.out.println("Warning! WallHit Positions are same"); // optional
             return Prefix.getPass(CheckType.WALLHIT);
         }
 

@@ -9,6 +9,7 @@ import com.trxsh.anticheat.utils.User;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+@Deprecated
 public class FlightB extends PacketCheck {
 
     private boolean lastOnGround;
@@ -27,9 +28,9 @@ public class FlightB extends PacketCheck {
         boolean lastOnGround = this.lastOnGround;
         this.lastOnGround = isOnGround;
 
-        if(!isOnGround && !lastOnGround && !lastLastOnGround && Math.abs(predictedDist) >= 0.005D) {
-            if(!PlayerUtility.isRoughlyEqual(distY, predictedDist) && PlayerUtility.Is2BlocksOffGround(user.getPlayer().getLocation()) && !user.getPlayer().isInsideVehicle() && !PlayerUtility.isUnderEntity(user.getPlayer()) && !user.isGliding && !user.getPlayer().isGliding()) {
-                return new CheckResult(true, CheckType.FLIGHT, "player y moving too fast in air whilst predicted value not equal to fly value");
+        if(!isOnGround && !lastOnGround && !lastLastOnGround && Math.abs(predictedDist) >= 0.020D) {
+            if(!PlayerUtility.isRoughlyEqual(distY, predictedDist) && !PlayerUtility.Is2BlocksOffGround(user.getPlayer().getLocation()) && !user.getPlayer().isInsideVehicle() && !PlayerUtility.isUnderEntity(user.getPlayer()) && !user.isGliding && !user.getPlayer().isGliding()) {
+                return new CheckResult(true, CheckType.FLIGHT, "predicted value not equal to fly value");
             }
         }
 

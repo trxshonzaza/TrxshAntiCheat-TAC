@@ -10,14 +10,16 @@ import org.bukkit.Material;
 @SuppressWarnings("deprecation")
 public class Settings {
 
-    public static final double COMBAT_MAX_REACH_SURVIVAL = 5.42; // You can play around and improve this...
-    public static final double COMBAT_MAX_REACH_CREATIVE = 5.4; // You can play around and improve this...
+    public static final double COMBAT_MAX_REACH_SURVIVAL = 6.4; // You can play around and improve this...
     public static final int MAX_ENTITIES = 8;
 
     public static final int ROUNDING_PLACES = 6;
 
-    public static final double MAX_XZ_BLOCKING_SPEED = 0.215;
-    public static double MAX_XZ_SPEED = 0.25;
+    public static final double MAX_XZ_BLOCKING_SPEED = 0.26;
+    public static final double MAX_XZ_SLOW_SPEED = 0.26;
+
+    public static double MAX_XZ_SPEED = 0.62;
+    //public static double MAX_XZ_JUMP_SPEED = 0.61;
     public static final double MAX_BLOCK_BREAK_DIST = 5.95;
 
     public static List<Material> SLOW_DOWN_BLOCKS;

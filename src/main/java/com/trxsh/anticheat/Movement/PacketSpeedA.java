@@ -3,10 +3,7 @@ package com.trxsh.anticheat.Movement;
 import com.trxsh.anticheat.Checks.CheckResult;
 import com.trxsh.anticheat.Checks.CheckType;
 import com.trxsh.anticheat.Checks.PacketCheck;
-import com.trxsh.anticheat.utils.Distance;
-import com.trxsh.anticheat.utils.PlayerUtility;
-import com.trxsh.anticheat.utils.Prefix;
-import com.trxsh.anticheat.utils.User;
+import com.trxsh.anticheat.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerMoveEvent;
 
@@ -14,6 +11,7 @@ public class PacketSpeedA extends PacketCheck {
 
     private double lastDist;
     private boolean lastOnGround;
+    public int vl = 0;
 
     public CheckResult runPacketCheck(User user, PlayerMoveEvent event) {
         Distance distance = new Distance(event);
@@ -36,7 +34,7 @@ public class PacketSpeedA extends PacketCheck {
 
         if(!onGround && !lastOnGround) {
             if(scaledEqualness >= 1.0) {
-                if(user.canBeSpeedflagged() && !user.isGliding && !user.getPlayer().isGliding() && speedCheck != 0) {
+                if(user.canBeSpeedflagged() && !user.isGliding && !user.getPlayer().isGliding() && speedCheck > Settings.MAX_XZ_SPEED)  {
                     return new CheckResult(true, CheckType.PACKETSPEED, "player went faster than usual and sending too many movement packets");
                 }
             }

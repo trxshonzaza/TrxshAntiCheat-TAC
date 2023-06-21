@@ -22,7 +22,7 @@ public class AltListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerLoginEvent event) {
-        ips.put(event.getPlayer().getUniqueId(), Objects.requireNonNull(event.getPlayer().getAddress()).getHostName());
+        ips.put(event.getPlayer().getUniqueId(), Objects.requireNonNull(event.getPlayer().getAddress()).getHostName().split(":")[0]);
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(Core.instance, new Runnable() {
             public void run() {
@@ -45,12 +45,11 @@ public class AltListener implements Listener {
     public void check() {
         for(UUID id : ips.keySet()) {
             Player player = Bukkit.getPlayer(id);
-            String ip = ips.get(id).split(":")[0];
+            String ip = ips.get(id);
 
-            assert player != null;
-            if(player.getUniqueId() != id) {
-                if(Objects.requireNonNull(player.getAddress()).getHostName().equalsIgnoreCase(ip)) {
-                    Core.kickasync(player, Prefix.getPrefix() + "\n" + "Ip Is Already Registered On The Server!" + "\n" + "Please Disconnect On The Other Account.");
+            if(ips.containsValue(ip)) {
+                if(ip != ips.get(id)) {
+                    //TODO: fix this
                 }
             }
         }

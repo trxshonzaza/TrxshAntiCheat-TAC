@@ -35,10 +35,10 @@ public class FakePlayer {
 
         MinecraftServer server = sp.getServer();
         ServerLevel level = sp.getLevel();
-        GameProfile gameProfile = new GameProfile(UUID.randomUUID(), ChatColor.RED + "dY3N572sM");
+        GameProfile gameProfile = new GameProfile(UUID.randomUUID(), ChatColor.RED + "");
 
-        String signature = "dY3N572sMGB1GF2rgZmxL0rAMVc94vArDSeQJ8n1xAs4KK5khp1zteh6ye62yQYr0sQagdAPsjrorUJfuJXo5RjpePSySIlYl+fzUGVbeJ4Ftya8U3Vlp80P3SwOX+PEdapKQst5mlZwlfccl/Ly2S4boTrS7C4hy+XPOPOImwX79w1Clf/9B45J8HkctjXsO84CSwloeNjP/kIr9XdA6QAcPEiqNq04RUaY9JmjukLLB7kHORVzbU1wzaLiglxCAKWA8PwSvHS709j3jEMMUzQ/Sn5aVUoIsdFFD9gHZQdewoY1BiMMjXEWiij5PDvIFEp6QEPTOT3fOozkwCVT9n1b+y9sdW/sNM7LuNdT7w2jd32ZxOA9q9Wwi5AZPMxCqgWUbgUVOPF+3WfCC0UHwQAz6leW02ZauFKg1JC9AUlRrjaqFQBsGx3FLuYMGKBzSsbMIK9TTDOQQjeyTEaAteL4LXX8VJvOl65wE/objEvZGsNh9WlTsz1q6UzcO/inIobQoZT9U5WaM+PmDUEvQ8wbYgOeXzCagymUA9Or4Cut8wfozZ41vDo+R+tEkxbOaGxgQDkn4XyANpzj2IBAM3FYqEmCbVUdXpVNqA34zPKiYE0UC45EUiU9l1HRxsRLfYT93gZPXdQDxLBWLq5m6dj3IPrLBDC0NIeS0zwswlM=";
-        String tex = "ewogICJ0aW1lc3RhbXAiIDogMTY0NTkzNzQ1MDg2MSwKICAicHJvZmlsZUlkIiA6ICIwNjlhNzlmNDQ0ZTk0NzI2YTViZWZjYTkwZTM4YWFmNSIsCiAgInByb2ZpbGVOYW1lIiA6ICJOb3RjaCIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yOTIwMDlhNDkyNWI1OGYwMmM3N2RhZGMzZWNlZjA3ZWE0Yzc0NzJmNjRlMGZkYzMyY2U1NTIyNDg5MzYyNjgwIgogICAgfQogIH0KfQ==";
+        String signature = "Nwi3iigzeeZlKethlo+tIlnTq1qetWsd417sa4zkP6jONZ4HKP241ayNoDxxD7uu0NLYbEOw+emFpAHUXpMOamjTl3fl1NyazaqChYXMsnmPq8uhYrituXmZk+MNnmv9G1JvrACOy6rMo93Y+SAFGOeJGeIb5yKkFba3VxLuku5mLaLmV4uUWAQXdgPeZdhvwoK2nSQQP/CyQec1glL+drxEPOoq/aglYQF+aGUCNvMH/4LCAcfpJWysymKtF0lfSgawJfSSLlZfPR/CSR8AISZVRNNAGixeb8HF+AT1c1zS/euiDwUjUgVvwRKCLetzEcpUHXz2STKaIewhE957C9r7fUbLWDXEcsx9A8IL16tWm/pwB3GGGp/U69chlBgzZGj948Xzo2+XJYbewvA8aBLnu+e+I/8sbFCwhRKbsMM8FabfcdP8CVzMFgzKKCmIswPZw+gOrHEh+Z8841dyQUs+pCzMCUt52qoJ+hePHtlIyMEbJfdSj0SfLkloyNYG47a1LMANY+MBxD/FzlgvIgYA5zpr2kMGssD5kY82WLCk5dbb/2z7MijiX/if4JiavuvdcshWztvFDfQCdH35iGSSI/Y+Jf3U6CifNkb5HSw0A+eGOTpnC40ji90Oe/ftEw9hMcPw/DGTqYz7xh6p8ZRvZ/vDFAfh/+rMfUtr8EQ=";
+        String tex = "ewogICJ0aW1lc3RhbXAiIDogMTY3NTMwMDE3ODk3NCwKICAicHJvZmlsZUlkIiA6ICIxYmVkNmFjMjk0YWM0MGYxOWMxYmZlZDY3ZTU3NTkwMyIsCiAgInByb2ZpbGVOYW1lIiA6ICJNaW5jZXJzIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzRmNjUxYTE2Mzc5YjdiOGNhYTQ1NzAxN2FjMjQ2MzIzZGM3Zjk0NjJkMWRjMjNjNmRhM2JkNzU4ZWU1OGJlOTIiCiAgICB9CiAgfQp9";
 
         gameProfile.getProperties().put("textures", new Property("textures", tex, signature));
 
@@ -48,27 +48,24 @@ public class FakePlayer {
         ServerGamePacketListenerImpl ps = sp.connection;
 
         ps.send(new ClientboundPlayerInfoUpdatePacket(ClientboundPlayerInfoUpdatePacket.Action.ADD_PLAYER, npc));
-        ps.send(new ClientboundPlayerInfoRemovePacket(List.of(new UUID[]{npc.getUUID()})));
         ps.send(new ClientboundAddPlayerPacket(npc));
+        ps.send(new ClientboundAddEntityPacket(npc));
 
-        Bukkit.getScheduler().runTaskLater(Core.instance, new Runnable() {
-            @Override
-            public void run() {
-                ps.send(new ClientboundRemoveEntitiesPacket(npc.getId()));
-            }
-        }, 10L);
-
-        ps.send(new ClientboundAddPlayerPacket(npc));
         Core.instance.getFakes().add(npc);
 
-        ItemStack axe = new ItemStack(Material.DIAMOND_AXE);
-        ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
-        ps.send(new ClientboundSetEquipmentPacket(npc.getBukkitEntity().getEntityId(), List.of(new Pair<>(EquipmentSlot.MAINHAND, CraftItemStack.asNMSCopy(axe)), new Pair<>(EquipmentSlot.OFFHAND, CraftItemStack.asNMSCopy(sword)))));
+        ItemStack axe = new ItemStack(Material.NETHERITE_AXE);
+        ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
+        ItemStack chest = new ItemStack(Material.NETHERITE_CHESTPLATE);
+        ItemStack leg = new ItemStack(Material.NETHERITE_LEGGINGS);
+        ItemStack boot = new ItemStack(Material.NETHERITE_BOOTS);
+
+        ps.send(new ClientboundSetEquipmentPacket(npc.getBukkitEntity().getEntityId(), List.of(new Pair<>(EquipmentSlot.MAINHAND, CraftItemStack.asNMSCopy(axe)), new Pair<>(EquipmentSlot.HEAD, CraftItemStack.asNMSCopy(helmet)), new Pair<>(EquipmentSlot.CHEST, CraftItemStack.asNMSCopy(chest)), new Pair<>(EquipmentSlot.LEGS, CraftItemStack.asNMSCopy(leg)), new Pair<>(EquipmentSlot.FEET, CraftItemStack.asNMSCopy(boot)))));
 
         Bukkit.getScheduler().runTaskLater(Core.instance, new Runnable() {
             @Override
             public void run() {
                 ps.send(new ClientboundRemoveEntitiesPacket(npc.getBukkitEntity().getEntityId()));
+                ps.send(new ClientboundPlayerInfoRemovePacket(List.of(new UUID[]{npc.getUUID()})));
                 Core.instance.getFakes().remove(npc);
             }
         }, 100L);

@@ -9,7 +9,7 @@ import com.trxsh.anticheat.Checks.CheckType;
 
 public class Prefix {
 
-    public static String prefix = ChatColor.DARK_PURPLE + "TAC" + ": " + ChatColor.GRAY;
+    public static String prefix = ChatColor.DARK_PURPLE + "TrxshAntiCheat" + ": " + ChatColor.GRAY;
     public static String[] alertMessages = new String[] { "Caught In 4K Using", "Cringed", "Caught Lacking Using", "Very Sus, Using" };
 
     public static String getPrefix() {

@@ -15,7 +15,8 @@ public enum CheckType {
     KILLAURA("KillAura"),
     PACKETSPEED("Packet Speed"),
     BADPACKETS("Bad Packets"),
-    SCAFFOLD("Scaffold");
+    SCAFFOLD("Scaffold"),
+    SPEED("Speed");
 
     private String string;
 

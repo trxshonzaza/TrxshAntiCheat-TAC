@@ -1,10 +1,10 @@
-name: TAC-Exclusive
+name: TrxshAntiCheat
 version: '${project.version}'
 main: com.trxsh.anticheat.Core
-api-version: 1.18
+api-version: 1.19
 author: trxsh
 depend: [ProtocolLib]
-description: Silent, effective anticheat exclusive to the DR SMP!
+description: Silent, effective anticheat made by trxsh
 commands:
   heuristics:
     description: Changes TAC Heuristics Mode.

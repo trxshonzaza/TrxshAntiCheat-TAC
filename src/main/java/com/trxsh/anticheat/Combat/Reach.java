@@ -2,6 +2,7 @@ package com.trxsh.anticheat.Combat;
 
 import com.trxsh.anticheat.Checks.PacketCheck;
 import com.trxsh.anticheat.Checks.PacketCombatCheck;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
 
@@ -20,10 +21,10 @@ public class Reach extends PacketCombatCheck {
         double x = distance.getXDifference();
         double z = distance.getZDifference();
 
-        double max = user.getPlayer().getGameMode() == GameMode.CREATIVE ? Settings.COMBAT_MAX_REACH_CREATIVE : Settings.COMBAT_MAX_REACH_SURVIVAL;
+        double dist = Math.abs(x + z);
 
-        if (x > max || z > max)
-            return new CheckResult(true, CheckType.REACH, (x > z ? z > max ? "both are " : x + " is " : z + " is ") + "greather than " + max);
+        if (dist > Settings.COMBAT_MAX_REACH_SURVIVAL)
+            return new CheckResult(true, CheckType.REACH, (x > z ? z > Settings.COMBAT_MAX_REACH_SURVIVAL ? "both are " : x + " is " : z + " is ") + "greather than " + Settings.COMBAT_MAX_REACH_SURVIVAL);
 
         return Prefix.getPass(CheckType.REACH);
     }
